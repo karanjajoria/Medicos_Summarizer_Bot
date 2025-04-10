@@ -1,0 +1,16 @@
+# Python virtual environment
+env/
+venv/
+
+# Python cache
+__pycache__/
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# MacOS / Windows hidden files
+.DS_Store
+Thumbs.db
