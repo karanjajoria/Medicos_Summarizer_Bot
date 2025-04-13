@@ -1,17 +1,23 @@
-const form = document.getElementById('uploadForm');
+document.addEventListener("DOMContentLoaded", function () {
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        body.classList.add("dark-mode");
+        body.classList.remove("light-mode");
+        themeToggle.checked = true;
+    }
 
-    const formData = new FormData(form);
-
-    const response = await fetch('/summarize', {
-        method: 'POST',
-        body: formData
+    themeToggle.addEventListener("change", function () {
+        if (this.checked) {
+            body.classList.add("dark-mode");
+            body.classList.remove("light-mode");
+            localStorage.setItem("theme", "dark");
+        } else {
+            body.classList.remove("dark-mode");
+            body.classList.add("light-mode");
+            localStorage.setItem("theme", "light");
+        }
     });
-
-    const data = await response.json();
-
-    document.getElementById('summary-box').style.display = 'block';
-    document.getElementById('summary-content').innerText = data.summary;
 });

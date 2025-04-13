@@ -1,3 +1,13 @@
 Flask
 PyPDF2
 ollama
+markdown2
+
+matplotlib
+numpy
+seaborn
+
+rouge-score
+sacrebleu
+bert-score
+pandas

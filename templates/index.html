@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DNA Sequence Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="light-mode">
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>DNA Sequence Classifier</h1>
+                <div class="toggles">
+                    <label class="switch">
+                        <input type="checkbox" id="themeToggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span class="toggle-label">Dark Mode</span>
+                </div>
+            </div>
+
+            <form action="/summarize" method="POST" enctype="multipart/form-data" class="form-section">
+                <label for="pdf" class="file-label">Upload a medical report (PDF)</label>
+                <input type="file" id="pdf" name="pdf" required>
+
+                <label for="language">Select Language:</label>
+                <select name="language" id="language">
+                    <option value="english">English</option>
+                    <option value="hindi">Hindi</option>
+                    <option value="marathi">Marathi</option>
+                    <option value = "spanish">Spanish</option>
+                    <option value = "french">French</option>
+                    <option value = "urdu">Urdu</option>
+                </select>
+
+                <button type="submit" class="btn">Analyze</button>
+            </form>
+            <!-- Error Handling-->
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+
+            <!-- Patient Info-->
+            {% if Patient_info %}
+                <div class="result-box">
+                    <h2>Patient_info</h2>
+                    <p>{{ Patient_info|safe }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Medical History -->
+            {% if Medical_History %}
+                <div class="result-box">
+                    <h2>Medical_History Statement</h2>
+                    <p>{{ Medical_History|safe }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Diagnosis Overview-->
+            {% if Diagnosis_Overview %}
+                <div class="result-box">
+                    <h2>Diagnosis_Overview</h2>
+                    <p>{{ Diagnosis_Overview|safe }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Prescription_Summary-->
+            {% if Prescription_Summary %}
+                <div class="result-box">
+                    <h2>Prescription_Summary</h2>
+                    <p>{{ Prescription_Summary|safe }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Life style-->
+            {% if Lifestyle_Recommendation %}
+                <div class="result-box">
+                    <h2>Lifestyle_Recommendation</h2>
+                    <p>{{ Lifestyle_Recommendation|safe }}</p>
+                </div>
+            {% endif %}
+
+            <!-- Overall_Summary-->
+            {% if Overall_summary %}
+                <div class="result-box">
+                    <h2>Overall_summary</h2>
+                    <h3 style="color:#9d79ff; text-align: right;">This is for Anaylisis purpose</h3> 
+                    <p>{{ Overall_summary|safe }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
