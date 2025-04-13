@@ -1,4 +1,4 @@
-cat <<EOF > README.md
+
 # 🩺 Medical Report Summarizer
 
 A Flask-based web application that summarizes medical reports in simple, easy-to-understand language using **LLaMA 3**. Upload PDF files, extract relevant health information, and optionally translate the output into multiple languages.
