@@ -52,7 +52,28 @@ project-root/
 
 ---
 
+## 🧪 Get Started With Ollama
+---
+
+### 1. Make sure your Ollama is installed properly, for that go to the website 
+```bash
+https://ollama.com/download
+```
+
+### 2. Setup Ollama application on your local machine
+
+### 3. To Install a model onto your system
+```bash
+Ollama #to check if ollama is properly installed
+```
+
+```bash
+ollama run llama3 
+```
+
+---
 ## 🧪 Installation
+---
 
 ### 1. Clone the repository
 
@@ -73,6 +94,8 @@ source venv/bin/activate  # On Windows use: venv\\Scripts\\activate
 ```bash
 pip install -r requirements.txt
 ```
+
+
 
 ### 4. Run the app
 
